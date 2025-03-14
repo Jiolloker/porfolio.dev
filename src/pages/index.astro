@@ -10,11 +10,14 @@ import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
 import TitleSection from "@/components/TitleSection.astro"
+
+
+import SkillsStack from "@/components/SkillsStack.astro"
 ---
 
 <Layout
-  title="Porfolio de midudev - Desarrollador y Programador Web con 15 años de experiencia"
-  description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+  title="Porfolio de Jonathan Lee - Full Stack Developer"
+  description="Contrata a Jonathan para crear tu aplicación web o móvil. Desarrollador Web."
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
@@ -23,12 +26,22 @@ import TitleSection from "@/components/TitleSection.astro"
     </Hero>
     </SectionContainer>
     <div class="space-y-24">
-    <SectionContainer id="experiencia">
+    <!-- <SectionContainer id="experiencia">
       <TitleSection>
         <Briefcase class="size-8" />
         Experiencia laboral
       </TitleSection>
       <Experience />
+    </SectionContainer> -->
+    <SectionContainer id="Skills">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        Skills Stack
+      </TitleSection>
+      <SkillsStack />
+      
+
+
     </SectionContainer>
 
     <SectionContainer id="proyectos">

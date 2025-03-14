@@ -4,7 +4,10 @@ import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
-
+import CodeSandBox from "./icons/CodeSandBox.astro"
+import ReactIcon from "./icons/ReactIcon.astro"
+import JavaScript from "./icons/JavaScript.astro"
+import ViteIcon from "./icons/ViteIcon.astro"
 const TAGS = {
   NEXT: {
     name: "Next.js",
@@ -16,31 +19,56 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  REACT: {
+    name: "React",
+    class: "bg-sky-300/50 text-white",
+    icon: ReactIcon,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-yellow-400/30 text-white",
+    icon: JavaScript,
+  },
+  VITE: {
+    name: "Vite",
+    class: "bg-gray-100/20 text-white",
+    icon: ViteIcon,
+  }
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "Clon basico de Keeper",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Una aplicación de notas simple, creada con React y JavaScript. Incluye la capacidad de agregar y eliminar notas. Memoria no persistente. Hecho en CodeSandbox.",
+    link: "https://t7mkqq.csb.app/",
+    codeSandbox: "https://codesandbox.io/p/devbox/using-pre-built-react-components-completed-forked-t7mkqq?workspaceId=ws_9S6Jd536Dy868hkj1FGpo1",
+    image: "/projects/keeper.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.REACT],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "React TodoList",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Simple Lista de tareas. Creada desde cero con React, JavaScript, Tailwind CSS y Vite. Incluye LocalStorage para guardar las tareas.",
+    link: "https://shimmering-churros-9f4491.netlify.app/",
+    github:"https://github.com/Jiolloker/React-Todolist",
+    image: "/projects/TodoList.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.REACT, TAGS.TAILWIND, TAGS.VITE],
+  },
+  {
+    title: "React Wordle Clon",
+    description:
+      "Un clon de Wordle, creado con React, JavaScript, Tailwind CSS y Vite. Incluye LocalStorage para guardar las partidas.",
+    link: "https://fastidious-meerkat-81b9ff.netlify.app/",
+    github:"https://github.com/Jiolloker/wordle-clon/tree/master",
+    image: "/projects/wordle.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.REACT, TAGS.TAILWIND, TAGS.VITE],
   },
 ]
 ---
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    PROJECTS.map(({ image, title, description, tags, link, codeSandbox, github }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -68,9 +96,9 @@ const PROJECTS = [
 
       <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
       <footer class="flex items-end justify-start mt-4 gap-x-4">
-          {github && (
-            <LinkButton href={github}>
-              <GitHub class="size-6" />
+          {codeSandbox && (
+            <LinkButton href={codeSandbox}>
+              <CodeSandBox class="size-6" />
               Code
               
             </LinkButton>
@@ -79,6 +107,12 @@ const PROJECTS = [
             <LinkButton href={link}>
               <Link class="size-4" />
               Preview
+            </LinkButton>
+          )}
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              GitHub
             </LinkButton>
           )}
         </footer>
